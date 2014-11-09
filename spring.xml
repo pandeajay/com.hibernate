@@ -31,7 +31,7 @@
 
 
 	<bean id="salesDao" class="Hibernate_Eclipse.com.hibernate.dao.impl.SalesEntryDaoImpl">
-		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />		
 	</bean>
 
 	<bean id="productDao" class="Hibernate_Eclipse.com.hibernate.dao.impl.ProductDaoImpl">

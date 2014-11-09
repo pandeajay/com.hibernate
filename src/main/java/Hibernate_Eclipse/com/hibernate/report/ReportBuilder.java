@@ -35,7 +35,7 @@ public class ReportBuilder {
 		SalesEntryDaoImpl salesDao = (SalesEntryDaoImpl) ctx.getBean(SalesEntryDaoImpl.class);	
 		ProductDaoImpl productDao = (ProductDaoImpl) ctx.getBean(ProductDaoImpl.class);	
 	
-		List<SalesEntry> salesList = null /*= (List<SalesEntry>) salesDao.listAllSalesEntry()*/;		
+		List<SalesEntry> salesList = (List<SalesEntry>) salesDao.listAllSalesEntry();		
 		List<ProductTable> productList = (List<ProductTable>) productDao.listAllProducts();
 		
 		for(ProductTable prod : productList){
@@ -55,7 +55,7 @@ public class ReportBuilder {
 		System.out.println("Sales Summary :");
 		System.out.println(newLine);
 		
-		System.out.println("ProductId		TotalAmount");
+		System.out.println("Name		TotalAmount");
 		System.out.println(newLine);
 		
 		java.util.Iterator<Entry<String, Double>> it = salesSummary.entrySet().iterator();

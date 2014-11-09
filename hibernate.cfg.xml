@@ -7,13 +7,6 @@
 
 <hibernate-configuration>
 
-	<session-factory name="java:hibernate/SessionFactory">
-		<mapping class="Hibernate_Eclipse.com.hibernate.model.SalesEntry" />
-	</session-factory>
-
-	<session-factory name="java:hibernate/SessionFactory">
-		<mapping class="Hibernate_Eclipse.com.hibernate.model.ProductTable" />
-	</session-factory>
 
 </hibernate-configuration>
 

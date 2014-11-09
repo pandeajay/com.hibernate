@@ -38,6 +38,6 @@ public class ProductDaoImpl implements ProductDao{
 	}
 
 	public List<?> listAllProducts() {
-		return sessionFactory.openSession().createQuery("from producttable").list();
+		return sessionFactory.openSession().createQuery("from ProductTable").list();
 	}	
 }

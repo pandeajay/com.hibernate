@@ -23,25 +23,25 @@ public class ProductTable {
 	@Id
 	@Column(name="ProductId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int productId;
+	private int id;
 	
 	@Column(name="ProductName")
-	private String productName;
+	private String name;
 	
 	public int getProductId() {
-		return productId;
+		return id;
 	}
 
 	public void setProductId(int productId) {
-		this.productId = productId;
+		this.id = productId;
 	}
 
 	public String getProductName() {
-		return productName;
+		return name;
 	}
 
 	public void setProductName(String productName) {
-		this.productName = productName;
+		this.name = productName;
 	}
 
 }
