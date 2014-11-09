@@ -1,5 +1,8 @@
 package Hibernate_Eclipse.com.hibernate;
 
+import java.util.Map;
+
+import Hibernate_Eclipse.com.hibernate.report.ReportBuilder;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -7,8 +10,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest extends TestCase
 {
     /**
      * Create the test case
@@ -33,6 +35,8 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+		ReportBuilder reportBuilder = new ReportBuilder();
+		Map map = reportBuilder.buildReport();
+        assertTrue( map.size() > 0 );
     }
 }

@@ -32,6 +32,9 @@ public class SalesEntry {
 	@Column(name="SaleAmount")
 	private double salesAmount;
 	
+	@Column(name="Units")
+	private int units;
+	
 	
 	public SalesEntry(){}
 	
@@ -59,6 +62,13 @@ public class SalesEntry {
 	}
 	public void setSalesAmount(double salesAmount) {
 		this.salesAmount = salesAmount;
+	}
+	
+	public int getUnits() {
+		return units;
+	}
+	public void setUnits(int units) {
+		this.units = units;
 	}
 
 
