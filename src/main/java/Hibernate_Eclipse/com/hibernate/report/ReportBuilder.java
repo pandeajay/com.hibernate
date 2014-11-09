@@ -53,17 +53,17 @@ public class ReportBuilder {
 		}
 		
 		System.out.println("Sales Summary :");
-		System.out.println(newLine);
+	//	System.out.println(newLine);
 		
-		System.out.println("Name		TotalAmount");
-		System.out.println(newLine);
+		System.out.println("ProductName		TotalAmount");
+		//System.out.println(newLine);
 		
 		java.util.Iterator<Entry<String, Double>> it = salesSummary.entrySet().iterator();
 		
 		while(it.hasNext()){
 			Entry<String, Double> entry = it.next();
 			System.out.println(entry.getKey() + "		" + entry.getValue());
-			System.out.println(newLine);		
+			//System.out.println(newLine);		
 		}
 			
 		return salesSummary;
