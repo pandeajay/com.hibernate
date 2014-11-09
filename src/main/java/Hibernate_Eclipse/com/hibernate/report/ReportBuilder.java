@@ -13,7 +13,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import Hibernate_Eclipse.com.hibernate.dao.impl.ProductDaoImpl;
 import Hibernate_Eclipse.com.hibernate.dao.impl.SalesEntryDaoImpl;
-import Hibernate_Eclipse.com.hibernate.model.ProductTable;
+import Hibernate_Eclipse.com.hibernate.model.Product;
 import Hibernate_Eclipse.com.hibernate.model.SalesEntry;
 
 
@@ -36,9 +36,9 @@ public class ReportBuilder {
 		ProductDaoImpl productDao = (ProductDaoImpl) ctx.getBean(ProductDaoImpl.class);	
 	
 		List<SalesEntry> salesList = (List<SalesEntry>) salesDao.listAllSalesEntry();		
-		List<ProductTable> productList = (List<ProductTable>) productDao.listAllProducts();
+		List<Product> productList = (List<Product>) productDao.listAllProducts();
 		
-		for(ProductTable prod : productList){
+		for(Product prod : productList){
 			products.put(prod.getProductId(), prod.getProductName());
 		}
 		

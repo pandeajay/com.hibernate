@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import Hibernate_Eclipse.com.hibernate.dao.ProductDao;
-import Hibernate_Eclipse.com.hibernate.model.ProductTable;
+import Hibernate_Eclipse.com.hibernate.model.Product;
 
 /**
  * @author Admin
@@ -20,11 +20,11 @@ public class ProductDaoImpl implements ProductDao{
         this.sessionFactory = sessionFactory;
     }
 
-	public ProductTable getProduct(int id) {
-		return (ProductTable) sessionFactory.getCurrentSession().get(ProductTable.class, id);
+	public Product getProduct(int id) {
+		return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
 	}
 
-	public void addProduct(ProductTable product) {
+	public void addProduct(Product product) {
 		sessionFactory.getCurrentSession().save(product);
 	}
 
@@ -33,11 +33,11 @@ public class ProductDaoImpl implements ProductDao{
 
 	}
 
-	public void editProduct(ProductTable product) {
+	public void editProduct(Product product) {
 		sessionFactory.getCurrentSession().update(product);		
 	}
 
 	public List<?> listAllProducts() {
-		return sessionFactory.openSession().createQuery("from ProductTable").list();
+		return sessionFactory.openSession().createQuery("from Product").list();
 	}	
 }

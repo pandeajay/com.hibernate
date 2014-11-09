@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="producttable")
-public class ProductTable {
+public class Product {
 
 	@Id
 	@Column(name="ProductId")
