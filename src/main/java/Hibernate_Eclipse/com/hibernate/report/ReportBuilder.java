@@ -9,6 +9,7 @@ import javassist.bytecode.Descriptor.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import Hibernate_Eclipse.com.hibernate.dao.impl.ProductDaoImpl;
@@ -31,7 +32,9 @@ public class ReportBuilder {
 	}
 	
 	public Map<String, AmountAndUnits> buildReport(){		
+		
 		ApplicationContext ctx = new FileSystemXmlApplicationContext("F:\\sample6\\com.hibernate\\spring.xml");
+	//	ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:/**/spring.xml");
 		SalesEntryDaoImpl salesDao = (SalesEntryDaoImpl) ctx.getBean(SalesEntryDaoImpl.class);	
 		ProductDaoImpl productDao = (ProductDaoImpl) ctx.getBean(ProductDaoImpl.class);	
 	
