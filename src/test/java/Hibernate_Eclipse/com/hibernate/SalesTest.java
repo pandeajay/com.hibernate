@@ -31,7 +31,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("spring.xml")
 @TransactionConfiguration
 @Transactional */
-public class AppTest extends TestCase
+public class SalesTest extends TestCase
 {
     /**
      * Create the test case
@@ -64,7 +64,7 @@ public class AppTest extends TestCase
 	}
 	
 	
-	public AppTest(){
+	public SalesTest(){
 		super( "AppTest" );
 	}
 	
@@ -80,11 +80,11 @@ public class AppTest extends TestCase
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( SalesTest.class );
     }
 
 
-    public void testApp()
+    public void testProductNumbers()
     {
 		//ReportBuilder reportBuilder = new ReportBuilder();
 		//Map map = reportBuilder.buildReport();
