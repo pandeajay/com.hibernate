@@ -1,6 +1,7 @@
 package Hibernate_Eclipse.com.hibernate;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
@@ -78,10 +79,11 @@ public class SalesTest extends TestCase
 	}
 	
 	public void addSalesEntry(){
+		List<Product> products = (List<Product>) productDao.listAllProducts();
 		for(int i = 0, j = 0 ; i < numOfSales ; i = i+2, j++){
 			SalesEntry sale = new SalesEntry();
 			sale.setDateOfSale(new Date(System.currentTimeMillis()));
-			sale.setProductId(j);
+			sale.setProductId(products.get(j).getProductId());
 			sale.setSalesAmount(i* i / 3.0);
 			sale.setUnits(i*2);
 			salesDao.addSalesEntry(sale);
@@ -89,7 +91,7 @@ public class SalesTest extends TestCase
 			
 			SalesEntry sale2 = new SalesEntry();
 			sale2.setDateOfSale(new Date(System.currentTimeMillis()));
-			sale2.setProductId(j);
+			sale2.setProductId(products.get(j).getProductId());
 			sale2.setSalesAmount(i*i);
 			sale2.setUnits(i*2);
 			salesDao.addSalesEntry(sale2);
