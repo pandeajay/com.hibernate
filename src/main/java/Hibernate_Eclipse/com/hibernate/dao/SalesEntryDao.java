@@ -12,4 +12,5 @@ public interface SalesEntryDao {
 	public void removeSalesEntry(int salesId);
 	public void editSalesEntry(SalesEntry salesEntry);
 	public List listAllSalesEntry();
+	public void deleteAllSalesEntry();
 }

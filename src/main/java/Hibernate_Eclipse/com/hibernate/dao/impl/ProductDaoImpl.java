@@ -2,7 +2,10 @@ package Hibernate_Eclipse.com.hibernate.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 import Hibernate_Eclipse.com.hibernate.dao.ProductDao;
 import Hibernate_Eclipse.com.hibernate.model.Product;
 
@@ -21,23 +24,36 @@ public class ProductDaoImpl implements ProductDao{
     }
 
 	public Product getProduct(int id) {
-		return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
+		return (Product) sessionFactory.openSession().get(Product.class, id);
 	}
 
 	public void addProduct(Product product) {
-		sessionFactory.getCurrentSession().save(product);
+		sessionFactory.openSession().save(product);
 	}
 
 	public void removeProduct(int id) {
-		sessionFactory.getCurrentSession().delete(getProduct(id));
+		sessionFactory.openSession().delete(getProduct(id));
 
 	}
 
 	public void editProduct(Product product) {
-		sessionFactory.getCurrentSession().update(product);		
+		sessionFactory.openSession().update(product);		
 	}
 
 	public List<?> listAllProducts() {
 		return sessionFactory.openSession().createQuery("from Product").list();
+	}
+
+	public void deleteAllProducts() {
+		List<Product> products = (List<Product>) listAllProducts();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		for(Product product : products){
+			session.delete(product);			
+								
+		}
+		tx.commit();
+		
+		
 	}	
 }

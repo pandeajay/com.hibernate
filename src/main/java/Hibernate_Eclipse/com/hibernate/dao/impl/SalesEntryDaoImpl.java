@@ -36,7 +36,7 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 	 */
 	
 	public SalesEntry getSalesEntry(int salesId) {
-		return (SalesEntry) sessionFactory.getCurrentSession().get(SalesEntry.class, salesId);
+		return (SalesEntry) sessionFactory.openSession().get(SalesEntry.class, salesId);
 	}
 
 	/* (non-Javadoc)
@@ -44,7 +44,7 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 	 */
 	
 	public void addSalesEntry(SalesEntry salesEntry) {
-		sessionFactory.getCurrentSession().save(salesEntry);
+		sessionFactory.openSession().save(salesEntry);
 
 	}
 
@@ -53,7 +53,7 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 	 */
 	
 	public void removeSalesEntry(int salesId) {
-		sessionFactory.getCurrentSession().delete(getSalesEntry(salesId));
+		sessionFactory.openSession().delete(getSalesEntry(salesId));
 
 	}
 
@@ -62,7 +62,7 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 	 */
 	
 	public void editSalesEntry(SalesEntry salesEntry) {
-		sessionFactory.getCurrentSession().update(salesEntry);	
+		sessionFactory.openSession().update(salesEntry);	
 
 	}
 
@@ -74,5 +74,11 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 		 //return sessionFactory.getCurrentSession().createQuery("from SalesEntry").list();
 		return sessionFactory.openSession().createQuery("from SalesEntry").list();
 	}
-	
+
+	public void deleteAllSalesEntry() {
+		List<SalesEntry> sales = (List<SalesEntry>) listAllSalesEntry();
+		for(SalesEntry sale : sales){
+			sessionFactory.openSession().delete(sale);
+		}		
+	}	
 }

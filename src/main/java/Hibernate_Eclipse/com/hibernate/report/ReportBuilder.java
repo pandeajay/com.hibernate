@@ -33,7 +33,7 @@ public class ReportBuilder {
 	
 	public Map<String, AmountAndUnits> buildReport(){		
 		
-		ApplicationContext ctx = new FileSystemXmlApplicationContext("F:\\sample6\\com.hibernate\\spring.xml");
+		ApplicationContext ctx = new FileSystemXmlApplicationContext("E:\\media\\com.hibernate\\spring.xml");
 	//	ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:/**/spring.xml");
 		SalesEntryDaoImpl salesDao = (SalesEntryDaoImpl) ctx.getBean(SalesEntryDaoImpl.class);	
 		ProductDaoImpl productDao = (ProductDaoImpl) ctx.getBean(ProductDaoImpl.class);	

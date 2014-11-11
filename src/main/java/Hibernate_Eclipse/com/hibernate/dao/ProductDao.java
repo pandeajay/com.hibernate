@@ -10,4 +10,5 @@ public interface ProductDao {
 	public void removeProduct(int id);
 	public void editProduct(Product product);
 	public List listAllProducts();
+	public void deleteAllProducts();
 }
