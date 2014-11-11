@@ -2,13 +2,16 @@ package Hibernate_Eclipse.com.hibernate.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import Hibernate_Eclipse.com.hibernate.dao.SalesEntryDao;
+import Hibernate_Eclipse.com.hibernate.model.Product;
 import Hibernate_Eclipse.com.hibernate.model.SalesEntry;
 
 
@@ -77,8 +80,12 @@ public class SalesEntryDaoImpl implements SalesEntryDao {
 
 	public void deleteAllSalesEntry() {
 		List<SalesEntry> sales = (List<SalesEntry>) listAllSalesEntry();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
 		for(SalesEntry sale : sales){
-			sessionFactory.openSession().delete(sale);
-		}		
+			session.delete(sale);			
+								
+		}
+		tx.commit();	
 	}	
 }

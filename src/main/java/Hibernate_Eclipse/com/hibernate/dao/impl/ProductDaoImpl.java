@@ -52,8 +52,6 @@ public class ProductDaoImpl implements ProductDao{
 			session.delete(product);			
 								
 		}
-		tx.commit();
-		
-		
+		tx.commit();	
 	}	
 }

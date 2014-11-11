@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class SalesEntry {
 	@Id
 	@Column(name="SalesId")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int salesId;
 	
 	@Column(name="DateofSale")
